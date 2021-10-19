@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var a = [1, 23]
+      var b = function () {}
+      var c = {}
+      var d = null
+      console.log(typeof a) // 'object'
+      console.log(typeof b) // 'function'
+      console.log(typeof c) // 'object'
+      console.log(typeof d) // 'object'
+
+      // undefined 和 null 的区别
+      // 1 undefined 代表定义了未赋值
+      // 2 null 定义并赋值了，只是值为 null
+
+      // 什么时候给变量赋值为 null 呢
+      // 1 初始赋值，表明将要赋值为对象
+      // 2 结束前，让对象成为垃圾对象（被垃圾回收器回收）
+
+      // 严格区分变量类型与数据类型
+      // 数据类型
+      // 1 基本类型
+      // 2 对象类型
+      // 变量的类型（变量内存值的类型）
+      // 基本类型：保存就是基本类型的数据
+      // 引用类型：保存的是地址值
+    </script>
+  </body>
+</html>
