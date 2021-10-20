@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+       1 每个函数 function 都有一个 prototype，即显式原型（属性）
+       2 每个实例对象都有一个 __proto__，即隐式原型（属性）
+       3 对象的隐式原型的值为其对应构造函数的显式原型的值
+       总结：
+         1 函数的 prototype 属性:在定义函数时自动添加的，默认值是一个空的 Object 对象
+         2 对象的 __proto__ 属性：创建对象时自动添加的，默认值为构造函数的 prototype 属性值
+      
+      */
+      function Fn() {
+        // 内部语句：Fn.prototype = {}
+      }
+
+      var f = new Fn() // 内部语句 this.__proto__ = Fn.prototyoe
+
+      console.log(Fn.prototype === f.__proto__) // true
+
+      Fn.prototype.test = function () {
+        console.log('test')
+      }
+
+      f.test()
+    </script>
+  </body>
+</html>
