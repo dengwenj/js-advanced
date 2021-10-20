@@ -27,6 +27,14 @@
       document.getElementById('btn').addEventListener('click', () => {
         console.log('btn')
       })
+
+      // 立即执行函数（匿名函数自调用）
+      // 隐藏实现
+      // 不会污染外部（全局）命名空间
+      // 用它来编码 js 模块
+      ;(function () {
+        console.log('立即执行函数（匿名函数自调用）')
+      })()
     </script>
   </body>
 </html>
