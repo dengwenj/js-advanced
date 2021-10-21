@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* \
+      闭包的缺点
+       * 函数执行完后，函数内的局部变量没有释放，占用内存时间会变长
+       * 容易造成内存泄漏
+       
+      解决
+       * 及时释放  f = null
+     */
+
+      function f1() {
+        var a = 3
+        function f2() {
+          console.log(++a)
+        }
+        return f2
+      }
+      var f = f1()
+      f()
+      f = null
+    </script>
+  </body>
+</html>
