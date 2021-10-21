@@ -15,17 +15,32 @@
         4 在当前函数执行完后，将栈顶的对象移除（出栈）
         5 当所有的代码执行完后，栈中只剩下 window
       */
-      var a = 10
-      var bar = function (x) {
-        var b = 5
-        foo(x + b)
+      // // 有四个执行上下文
+      // var a = 10
+      // var bar = function (x) {
+      //   var b = 5
+      //   foo(x + b)
+      // }
+      // var foo = function (y) {
+      //   var c = 5
+      //   console.log(a + c + y)
+      // }
+      // bar(10)
+
+      // 依次输出是：gb：undefined fb：1 fb:2 fb:3 fe:3 fe:2 fe:1 ge:1
+      // 整个过程中产生了 5 个执行上下文
+      console.log('global begin:' + i) // undefined
+      var i = 1
+      foo(1)
+      function foo(i) {
+        if (i === 4) {
+          return
+        }
+        console.log('foo() begin:' + i)
+        foo(i + 1)
+        console.log('foo() end:' + i)
       }
-      var foo = function (y) {
-        var c = 5
-        console.log(a + c + y)
-      }
-      bar(10)
-      // 有四个执行上下文
+      console.log('global end:' + i)
     </script>
   </body>
 </html>
