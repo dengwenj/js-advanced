@@ -18,12 +18,14 @@
         function f2() {
           a++
           console.log(a)
+          return a
         }
         return f2
       }
       var f = f1()
       f()
-      f()
+      var aa = f()
+      console.log(aa)
     </script>
   </body>
 </html>
