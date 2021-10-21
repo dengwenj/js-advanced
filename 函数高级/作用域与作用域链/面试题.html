@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+      作用域链就是先在自己作用域找，没找到就一层一层的往上找，找到了就不找了，没找到就报错
+      作用域链找的是变量，原型链找的是属性
+    */
+
+      // 面试题1
+      var x = 10
+      function fn() {
+        console.log(x) // 10 不是20
+      }
+      function show(f) {
+        var x = 20
+        f()
+      }
+      show(fn)
+
+      // 面试题2
+      var fn = function () {
+        console.log(fn) // 这个函数
+      }
+      fn()
+
+      var obj = {
+        fn2: function () {
+          console.log(fn2) // 报错
+          // console.log(this.fn2) // 这样才是这个函数
+        },
+      }
+      obj.fn2()
+    </script>
+  </body>
+</html>
