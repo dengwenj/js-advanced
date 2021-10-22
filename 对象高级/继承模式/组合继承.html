@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function F(name, age) {
+        this.name = name
+        this.age = age
+      }
+      F.prototype.dc = function () {
+        console.log('dc')
+      }
+
+      function S(name, age, price) {
+        F.call(this, name, age) // this.F()  让子类继承父类的属性
+        this.price = price
+      }
+      S.prototype = new F() // 让子类继承父类的方法
+      S.prototype.constructor = S // 修正子类的 constructor
+
+      S.prototype.dwj = function () {
+        console.log('dwj')
+      }
+
+      var s1 = new S('dwj', 21, 16000)
+      console.log(s1)
+    </script>
+  </body>
+</html>
