@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+       定时器回调函数是在主线程执行的，js是单线程
+       定时器不能保证定时执行
+       宏任务
+      */
+      for (var i = 0; i <= 1000000000; i++) {}
+      setTimeout(() => {
+        console.log('set')
+      }, 200)
+    </script>
+  </body>
+</html>
