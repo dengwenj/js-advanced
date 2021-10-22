@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Object 构造函数
+      var o = new Object()
+      o.name = 'xd'
+      o.age = 21
+      o.setName = function (name) {
+        this.name = name
+      }
+      console.log(o)
+
+      // 字面量创建
+      var obj = {
+        name: 'hh',
+        age: 20,
+      }
+      console.log(obj)
+
+      // 工厂函数
+      function fn() {
+        var obj1 = {
+          name: 'ddd',
+          age: 54,
+        }
+        return obj1
+      }
+      var obj2 = fn()
+      console.log(obj2)
+
+      // 构造函数
+      function Obj(name, age) {
+        this.name = name
+        this.age = age
+      }
+
+      // 方法放在原型上，内存空间少占用
+      Obj.prototype.setName = function (name) {
+        this.name = name
+      }
+
+      var t = new Obj('tom', 12)
+      var j = new Obj('dwj', 21)
+      console.log(t, j)
+    </script>
+  </body>
+</html>
