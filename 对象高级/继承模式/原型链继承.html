@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function F() {
+        this.f = 'c'
+      }
+      F.prototype.dc = function () {
+        console.log('dc')
+      }
+
+      function S() {
+        this.s = 'j'
+      }
+      // 原型链继承。子类型的原型为父类型的一个实例对象
+      S.prototype = new F()
+
+      S.prototype.dwj = function () {
+        console.log('dwj')
+      }
+      var s1 = new S()
+      s1.dwj()
+      s1.dc()
+    </script>
+  </body>
+</html>
