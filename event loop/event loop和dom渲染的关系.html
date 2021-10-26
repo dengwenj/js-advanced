@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      /* 
+        每次执行栈清空，即同步代码执行完
+        都是 dom 重新渲染的机会，dom 结构如有改变则重新渲染
+        然后再去触发下一次 event loop
+      */
+      setTimeout(() => {
+        console.log('set')
+      })
+      const div = document.querySelector('div')
+
+      const p1 = '<p>p1</p>'
+      const p2 = '<p>p2</p>'
+      const p3 = '<p>p3</p>'
+
+      div.innerHTML = p1
+      div.innerHTML += p2
+      div.innerHTML += p3
+      console.log(div.children.length) // 3
+      alert('gg') // 执行这里的时候，不会把 dom 渲染在页面上，要把这个执行完了，才会把 dom 渲染在页面上,但是内部已经执行dom了，只是没有渲染在页面上，然后再 event loop
+    </script>
+  </body>
+</html>
