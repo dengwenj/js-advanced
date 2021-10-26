@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      /* 
+      宏任务：dom 渲染后触发
+      微任务：dom 渲染前触发
+    */
+
+      const div = document.querySelector('div')
+
+      const p1 = '<p>p1</p>'
+      const p2 = '<p>p2</p>'
+      const p3 = '<p>p3</p>'
+
+      div.innerHTML = p1
+      div.innerHTML += p2
+      div.innerHTML += p3
+
+      console.log(div.children.length) // 3
+      console.log(1)
+
+      setTimeout(() => {
+        alert('宏任务')
+      })
+
+      Promise.resolve().then(() => {
+        alert('微任务')
+      })
+    </script>
+  </body>
+</html>
